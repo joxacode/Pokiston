@@ -1,0 +1,71 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="E111" />
+          <option value="E501" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyShadowingBuiltinsInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredNames">
+        <list>
+          <option value="filter" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="modeltranslation.translator" />
+          <option value="apps.course.models.Wishlist.objects" />
+          <option value="rest_framework.fields.HiddenField.__getitem__" />
+          <option value="apps.course.models.UserCourse.objects" />
+          <option value="apps.course.models.Wishlist.DoesNotExist" />
+          <option value="apps.course.models.UserCourse.DoesNotExist" />
+          <option value="apps.course.models.StudentAnswer.objects" />
+          <option value="apps.course.models.StudentAnswer.DoesNotExist" />
+          <option value="apps.course.models.StudentLessonResult.objects" />
+          <option value="apps.course.models.StudentLessonResult.DoesNotExist" />
+          <option value="apps.course.models.Chapter.id" />
+          <option value="apps.course.models.Lesson.id" />
+          <option value="apps.course.models.Mentor.id" />
+          <option value="apps.course.models.Payment.id" />
+          <option value="apps.course.models.ChapterPermission.DoesNotExists" />
+          <option value="apps.course.models.Course.objects" />
+          <option value="app.models.Sponsor" />
+          <option value="app.models.Student" />
+          <option value="app.models.Student.objects" />
+          <option value="apps.common.models.x" />
+          <option value="apps.users.models.UserConfirmation.objects" />
+          <option value="apps.course.models.Course.DoesNotExist" />
+          <option value="apps.course.models.Chapter.objects" />
+          <option value="apps.course.models.StudentAnswer.DoesNotExists" />
+          <option value="django.contrib.admin.options.ModelAdmin.queryset" />
+          <option value="apps.course.models.Lesson.objects" />
+          <option value="apps.course.models.Progress.objects" />
+          <option value="apps.sellers.models.Documents.objects" />
+          <option value="apps.common.models.Category.objects" />
+          <option value="apps.common.models.Tag.objects" />
+          <option value="apps.common.models.WishList.objects" />
+          <option value="apps.common.models.WishList.DoesNotExist" />
+          <option value="rest_framework.filters.DjangoFilterBackend" />
+          <option value="django.db.models.fields.related.ManyToManyField.count" />
+          <option value="django.db.models.fields.related.ForeignKey.first_name" />
+          <option value="django.db.models.fields.related.ManyToManyField.all" />
+          <option value="rest_framework.fields.SerializerMethodField.count" />
+          <option value="apps.sellers.serializers.SellerAdminListSerializer.documents" />
+          <option value="apps.sellers.models.Cart.objects" />
+          <option value="apps.common.models.Category.DoesNotExist" />
+          <option value="apps.sellers.models.Documents.DoesNotExist" />
+          <option value="apps.common.models.Data.objects" />
+          <option value="apps.common.models.Banner.objects" />
+          <option value="apps.common.models.FAQ.objects" />
+          <option value="apps.sellers.models.Cart.DoesNotExist" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
