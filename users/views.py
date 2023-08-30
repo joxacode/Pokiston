@@ -5,6 +5,7 @@ from . import models
 from rest_framework.exceptions import ValidationError
 from rest_framework.response import Response
 from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
 
 
 class SignInAPIView(APIView):
@@ -58,6 +59,7 @@ class UserBranchSerializer(generics.ListAPIView):
 
 
 class ResetPasswordAPIView(APIView):
+    permission_classes = [IsAuthenticated]
     serializer_class = serializers.ResetPasswordSerializer
 
     def post(self, request, *args, **kwargs):
