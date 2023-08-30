@@ -88,3 +88,4 @@ class ResetPasswordAPIView(APIView):
             data={'msg': 'Password successfully updated'},
             status=200
         )
+
