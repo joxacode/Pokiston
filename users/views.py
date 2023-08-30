@@ -6,6 +6,7 @@ from rest_framework.exceptions import ValidationError
 from rest_framework.response import Response
 from rest_framework import generics
 
+
 class SignInAPIView(APIView):
     serializer_class = serializers.SignInSerializers
 
@@ -54,3 +55,37 @@ class UserBranchSerializer(generics.ListAPIView):
         user = self.request.user
         queryset = models.UserBranch.objects.filter(user=user)
         return queryset
+
+
+class ResetPasswordAPIView(APIView):
+    serializer_class = serializers.ResetPasswordSerializer
+
+    def post(self, request, *args, **kwargs):
+        serializer = serializers.ResetPasswordSerializer(data=self.request.data)
+        serializer.is_valid(raise_exception=True)
+
+        user = self.request.user
+        old_password = serializer.validated_data.get('old_password')
+        new_password1 = serializer.validated_data.get('new_password1')
+        new_password2 = serializer.validated_data.get('new_password2')
+
+        if not user.check_password(old_password):
+            raise ValidationError(
+                detail={'msg': 'Incorrect old password'},
+                code=400
+            )
+
+        if new_password1 != new_password2:
+            raise ValidationError(
+                detail={'msg': 'New passwords do not match'},
+                code=400
+            )
+
+        user.set_password(new_password1)
+        user.save()
+
+        return Response(
+            data={'msg': 'Password successfully updated'},
+            status=200
+        )
+

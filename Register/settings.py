@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-8b689csq0hna#b5mk#vf=#9bg0(@n=*t!tr7sp@ic#h5gx7aaw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*", "pokiston.pythonanywhere.com"]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -45,7 +45,6 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -205,16 +204,3 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer",
 }
 
-
-CSRF_COOKIE_SECURE = True
-CSRF_TRUSTED_ORIGINS = [
-    "https://example.com"
-]
-
-###################################################################
-# CORS
-###################################################################
-
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOW_HEADERS = ["*"]
