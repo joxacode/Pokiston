@@ -24,7 +24,6 @@ class BranchUserListSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.UserBranch
         fields = (
-            'id',
             'branch',
             'user',
         )
