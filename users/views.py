@@ -53,8 +53,8 @@ class UserBranchSerializer(generics.ListAPIView):
     serializer_class = serializers.BranchUserListSerializer
 
     def get_queryset(self):
-        user = self.request.user
-        queryset = models.UserBranch.objects.filter(user=user)
+        user = self.request.user.id
+        queryset = models.UserBranch.objects.filter(user__id=user)
         return queryset
 
 
