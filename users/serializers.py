@@ -30,8 +30,11 @@ class BranchUserListSerializer(serializers.ModelSerializer):
         )
 
 
-class ValidationError:
-    pass
+class BranchNameSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.Branch
+        fields = ('id', 'name',)
 
 
 class ResetPasswordSerializer(serializers.Serializer):
@@ -66,3 +69,7 @@ class ForgotPasswordSerializer(serializers.Serializer):
 
 class GetUserNameSerializer(serializers.Serializer):
     username = serializers.CharField(required=True)
+
+
+
+
