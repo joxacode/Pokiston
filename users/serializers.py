@@ -71,5 +71,11 @@ class GetUserNameSerializer(serializers.Serializer):
     username = serializers.CharField(required=True)
 
 
+class UserBranchSerializer(serializers.ModelSerializer):
+    # user = serializers.HiddenField(default=serializers.CurrentUserDefault)
+
+    class Meta:
+        model = models.UserBranch
+        fields = ('user', 'branch')
 
 

@@ -36,7 +36,7 @@ class Branch(models.Model):
     name = models.CharField(max_length=122, verbose_name='Branch Name')
 
     def __str__(self):
-        return f'{self.name}'
+        return f'{self.id}{self.name}'
 
 
 class UserBranch(models.Model):
@@ -51,4 +51,5 @@ class UserBranch(models.Model):
         on_delete=models.CASCADE,
         verbose_name='Branch',
         related_name='branch',
+        null=True,
     )

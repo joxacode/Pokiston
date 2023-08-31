@@ -6,6 +6,7 @@ from rest_framework.exceptions import ValidationError
 from rest_framework.response import Response
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
+from .models import Branch, UserBranch
 
 
 class SignInAPIView(APIView):
@@ -49,7 +50,7 @@ class BranchListAPIView(generics.ListAPIView):
     queryset = models.Branch.objects.all()
 
 
-class UserBranchSerializer(generics.ListAPIView):
+class UserBranchListAPIView(generics.ListAPIView):
     serializer_class = serializers.BranchUserListSerializer
 
     def get_queryset(self):
@@ -142,5 +143,21 @@ class GetUserNameCreateAPIView(generics.CreateAPIView):
         )
 
 
+class UserBranchUpdateView(APIView):
+    def post(self, request, *args, **kwargs):
+        branch_id_to_update = request.data.get('branch_id')  # Get the desired Branch ID from the request data
 
+        try:
+            branch = Branch.objects.get(id=branch_id_to_update)
+        except Branch.DoesNotExist:
+            return Response({'detail': 'Branch not found.'})
 
+        try:
+            user_branch = UserBranch.objects.get(user=request.user)
+        except UserBranch.DoesNotExist:
+            return Response({'detail': 'UserBranch not found.'})
+
+        user_branch.branch = branch
+        user_branch.save()
+
+        return Response({'detail': 'UserBranch updated successfully.'})
