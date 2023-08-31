@@ -30,6 +30,10 @@ class BranchUserListSerializer(serializers.ModelSerializer):
         )
 
 
+class ValidationError:
+    pass
+
+
 class ResetPasswordSerializer(serializers.Serializer):
     old_password = serializers.CharField(required=True)
     new_password1 = serializers.CharField(required=True)
@@ -42,5 +46,23 @@ class ResetPasswordSerializer(serializers.Serializer):
         if new_password1 != new_password2:
             raise serializers.ValidationError("New passwords must match.")
 
+
         return data
 
+
+class ForgotPasswordSerializer(serializers.Serializer):
+    new_password1 = serializers.CharField(required=True)
+    new_password2 = serializers.CharField(required=True)
+
+    def validate(self, data):
+        new_password1 = data.get('new_password1')
+        new_password2 = data.get('new_password2')
+
+        if new_password1 != new_password2:
+            raise serializers.ValidationError("New passwords must match.")
+
+        return data
+
+
+class GetUserNameSerializer(serializers.Serializer):
+    username = serializers.CharField(required=True)
